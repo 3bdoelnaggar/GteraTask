@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/LoginFragment"
+    android:id="@+id/auth_navigation">
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.gtera.gteratask.presentation.login.LoginFragment"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_LoginFragment_to_SMSVerificationFragment"
+            app:destination="@id/SMSVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SMSVerificationFragment"
+        android:name="com.gtera.gteratask.presentation.smsVerification.SmsVerificationFragment"
+        android:label="SMS Verification" />
+
+</navigation>
