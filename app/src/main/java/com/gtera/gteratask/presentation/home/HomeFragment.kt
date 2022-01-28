@@ -1,44 +1,23 @@
 package com.gtera.gteratask.presentation.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.gtera.gteratask.databinding.FragmentHomeBinding
+import com.gtera.gteratask.R
+import com.gtera.gteratask.databinding.HomeFragmentBinding
+import com.gtera.gteratask.viewBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private val binding by viewBinding (HomeFragmentBinding::bind)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        homeViewModel.stateLiveData.observe(viewLifecycleOwner){
+            if(it!=null){
+                binding.greetingTextView.text=it.greeting
+                binding.shoppingListRecyclerView.adapter = ShoppingListAdapter(it.shoppingList)
+            }
+        }
     }
 }
