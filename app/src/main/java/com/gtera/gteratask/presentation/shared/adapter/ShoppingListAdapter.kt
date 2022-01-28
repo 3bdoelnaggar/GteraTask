@@ -1,9 +1,10 @@
-package com.gtera.gteratask.presentation.home
+package com.gtera.gteratask.presentation.shared.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gtera.gteratask.databinding.ShoppingItemBinding
+import com.gtera.gteratask.presentation.shared.model.UiShoppingItem
 
 class ShoppingListAdapter(private val shoppingList: List<UiShoppingItem>) :
     RecyclerView.Adapter<ShoppingItemViewHolder>() {

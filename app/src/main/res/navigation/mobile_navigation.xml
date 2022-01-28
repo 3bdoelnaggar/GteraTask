@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.gtera.gteratask.presentation.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.gtera.gteratask.presentation.dashboard.ProductListFragment"
+        android:label="@string/title_product_list"
+        tools:layout="@layout/product_list_fragment" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.gtera.gteratask.presentation.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.gtera.gteratask.presentation.notifications.ShoppingListFragment"
+        android:label="@string/title_shopping_list"
+        tools:layout="@layout/shopping_list_fragment" />
 </navigation>

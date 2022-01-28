@@ -1,9 +1,7 @@
 package com.gtera.gteratask.presentation.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.gtera.gteratask.presentation.StateViewModel
+import com.gtera.gteratask.presentation.shared.model.UiShoppingItem
 
 class HomeViewModel : StateViewModel<HomeState>() {
     init {
@@ -16,4 +14,3 @@ class HomeViewModel : StateViewModel<HomeState>() {
 }
 
 data class HomeState(val greeting: String, val shoppingList: List<UiShoppingItem>)
-data class UiShoppingItem(val name: String)
