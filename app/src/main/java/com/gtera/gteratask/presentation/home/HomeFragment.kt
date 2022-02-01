@@ -19,8 +19,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         homeViewModel.stateLiveData.observe(viewLifecycleOwner){
             if(it!=null){
                 binding.greetingTextView.text=it.greeting
-                binding.shoppingListRecyclerView.adapter = ProductListAdapter(it.shoppingList)
+                binding.shoppingListRecyclerView.adapter = ProductListAdapter(
+                    it.shoppingList,
+                    ::onItemClicked
+                )
             }
         }
+    }
+
+    private fun onItemClicked() {
+
     }
 }

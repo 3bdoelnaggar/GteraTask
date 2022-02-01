@@ -1,5 +1,6 @@
 package com.gtera.gteratask.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -50,4 +51,9 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+        override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.nav_host_fragment_activity_main).navigateUp()
+    }
+
 }

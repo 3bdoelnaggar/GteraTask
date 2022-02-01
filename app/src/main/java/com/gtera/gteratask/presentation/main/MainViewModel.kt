@@ -9,7 +9,7 @@ class MainViewModel : ViewModel() {
     val stateLiveData  :LiveData<MainState> = _stateLiveData
 
     init {
-        val isUserLoggedIn =false
+        val isUserLoggedIn =true
         if(isUserLoggedIn){
             _stateLiveData.value=MainState.Home
 

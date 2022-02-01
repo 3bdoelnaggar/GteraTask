@@ -9,17 +9,34 @@
         android:id="@+id/navigation_home"
         android:name="com.gtera.gteratask.presentation.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/home_fragment" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.gtera.gteratask.presentation.productList.ProductListFragment"
         android:label="@string/title_product_list"
-        tools:layout="@layout/product_list_fragment" />
+        tools:layout="@layout/product_list_fragment">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.gtera.gteratask.presentation.shoppingList.ShoppingListFragment"
         android:label="@string/title_shopping_list"
         tools:layout="@layout/shopping_list_fragment" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.gtera.gteratask.presentation.ProductDetailsFragment"
+        android:label="product_details_fragment"
+        tools:layout="@layout/product_details_fragment">
+
+        <argument
+            android:name="details"
+            android:defaultValue="Android!"/>
+        <deepLink app:uri="www.gtera.com/{details}" />
+
+    </fragment>
+
 </navigation>

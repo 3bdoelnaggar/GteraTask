@@ -21,9 +21,13 @@ private val binding by viewBinding (ShoppingListFragmentBinding::bind)
             ViewModelProvider(this).get(ShoppingListViewModel::class.java)
         shoppingListViewModel.stateLiveData.observe(viewLifecycleOwner){
             if(it!=null){
-               binding.shoppingListRecyclerView.adapter = ProductListAdapter(it)
+               binding.shoppingListRecyclerView.adapter = ProductListAdapter(it, ::onItemClicked)
             }
         }
+
+    }
+
+    private fun onItemClicked() {
 
     }
 

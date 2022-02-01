@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.gtera.gteratask.R
 import com.gtera.gteratask.databinding.ProductListFragmentBinding
 import com.gtera.gteratask.presentation.shared.adapter.ProductListAdapter
@@ -24,9 +25,13 @@ class ProductListFragment : Fragment(R.layout.product_list_fragment) {
             ViewModelProvider(this).get(ProductListViewModel::class.java)
         productListViewModel.stateLiveData.observe(viewLifecycleOwner){
             if(it!=null){
-                binding.productListRecyclerView.adapter = ProductListAdapter(it.data)
+                binding.productListRecyclerView.adapter = ProductListAdapter(it.data,::onItemClicked)
             }
         }
+
+    }
+    fun onItemClicked(){
+            findNavController().navigate(ProductListFragmentDirections.actionNavigationDashboardToProductDetailsFragment("From App"))
     }
 
 }
